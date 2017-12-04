@@ -5,28 +5,17 @@ import ReactDOM from 'react-dom';
 class CreateNode extends Component{
     constructor(props){
         super(props);
-        this.state = {name: '', email:''}
     }
     render() {
         return (
-            <form onSubmit={event => this.submitNode(event)}>
-                <input type="text" onChange={name => this.onInputChangeName(name)}/>
-                <input type="email" onChange={email => this.onInputChangeEmail(email)}/>
-                <button>add</button>
+            <form onSubmit={this.props.onForSubmit} className="form-group">
+                <input  className="form-control" type="text" onChange={this.props.onForcus} />
+                <button className="btn btn-primary">add</button>
             </form>
         )
     }
-    onInputChangeName(name){
-        this.setState({name});
-    }
-    onInputChangeEmail(email){
-        this.setState({email});
-    }
-    submitNode(event){
-        event.preventDefault();
-        let obj = {name: this.state.name, email:this.state.email};
-        this.props.getProps(obj)
-    }
+
+
 
 
 }
